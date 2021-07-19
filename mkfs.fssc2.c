@@ -324,7 +324,6 @@ int main(int argc, char *argv[])
 	strcpy(rootdir,"");
 	strcpy(attfile,"attributes.list");
 	char *current_path = (char*) malloc(current_path_alloc);
-	char *tree;
 	for(i=1;i<argc;i++)
 	{
 		if(argv[i][0] == '-')
@@ -395,7 +394,6 @@ int main(int argc, char *argv[])
 	// Add FSSC header
 	fprintf(fw,"FSSC2\n");
 	// Add filesystem tree
-	tree = (char*) malloc(strlen(checkdir(rootdir,rootdir,"",true,argv[0],attfile,false))+1);
 	fprintf(fw,"%s",checkdir(rootdir,rootdir,"",true,argv[0],attfile,true));
 	fclose(fw);
 	return 0;
